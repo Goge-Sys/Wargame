@@ -50,3 +50,5 @@ SSH (compte administrateur)
 | `src/challenge.c` | Code source du crackme (valeurs anonymisées) |
 | `solve/solve.py` | Script Python de résolution |
 | `writeup/writeup.md` | Write Up complet avec explications |
+
+ [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
