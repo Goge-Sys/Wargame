@@ -28,10 +28,10 @@ Si `result == TARGET` → accès autorisé.
 
 ## Outils nécessaires pour résoudre
 
-- `strings` — analyse statique basique
-- `Ghidra` — décompilation et analyse du code
-- `gdb` — analyse dynamique pour récupérer le secret en mémoire
-- `Python 3` — script d'inversion du XOR
+- `strings` - analyse statique basique
+- `Ghidra` - décompilation et analyse du code
+- `gdb` - analyse dynamique pour récupérer le secret en mémoire
+- `Python 3` - script d'inversion du XOR
 
 ## Chemin de résolution
 
