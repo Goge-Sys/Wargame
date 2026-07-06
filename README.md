@@ -51,4 +51,4 @@ SSH (compte administrateur)
 | `solve/solve.py` | Script Python de résolution |
 | `writeup/writeup.md` | Write Up complet avec explications |
 
- [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+ [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![C](https://img.shields.io/badge/language-C-blue) ![Python](https://img.shields.io/badge/script-Python3-green) ![Debian](https://img.shields.io/badge/platform-Debian%2013-red)
