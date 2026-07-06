@@ -113,8 +113,8 @@ SSH (compte administrateur)
 
 | Fichier | Description |
 |--------|-------------|
-| `src/challenge.c` | Code source du crackme (valeurs anonymisées) |
-| `solve/solve.py` | Script Python de résolution |
+| `challenge.c` | Code source du crackme (valeurs anonymisées) |
+| `solve.py` | Script Python de résolution |
 | `writeup/writeup.md` | Write Up complet avec explications |
 
  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![C](https://img.shields.io/badge/language-C-blue) ![Python](https://img.shields.io/badge/script-Python3-green) ![Debian](https://img.shields.io/badge/platform-Debian%2013-red)
