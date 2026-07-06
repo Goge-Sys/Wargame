@@ -26,6 +26,72 @@ result[i] = input[i] XOR key[i % 14] XOR secret[i]
 
 Si `result == TARGET` → accès autorisé.
 
+## Reproduire le challenge
+
+### Prérequis
+- VirtualBox
+- Une ISO Debian 13
+- gcc, python3, vim
+
+### 1 — Créer la VM
+- Type : Linux / Debian 64-bit
+- RAM : 1024 Mo minimum
+- Disque : VMDK
+- Réseau : Bridge
+
+### 2 — Créer le compte joueur
+```bash
+adduser administrateur
+# Mot de passe au choix, ce sont les creds que le joueur utilisera
+```
+
+### 3 — Générer le secret
+```bash
+python3 -c "
+import random
+secret = bytes([random.randint(1,255) for _ in range(16)])
+with open('/root/.secret', 'wb') as f:
+    f.write(secret)
+"
+chmod 600 /root/.secret
+chown root:root /root/.secret
+```
+
+### 4 — Générer le TARGET
+```bash
+python3 -c "
+key = 'ESDw4rg4me2026'
+password = 'VOTRE_MOT_DE_PASSE_ROOT'  # à choisir, 16 caractères
+with open('/root/.secret', 'rb') as f:
+    secret = f.read(16)
+result = bytes([(ord(password[i]) ^ ord(key[i % len(key)])) ^ secret[i] for i in range(len(password))])
+print(', '.join(f'0x{b:02x}' for b in result))
+"
+```
+
+Colle les valeurs obtenues dans `TARGET[]` du `challenge.c`.
+
+### 5 — Compiler et installer
+```bash
+gcc -O2 -s challenge.c -o /home/administrateur/challenge
+chown root:root /home/administrateur/challenge
+chmod 4755 /home/administrateur/challenge
+```
+
+### 6 — Autoriser gdb en sudo
+```bash
+/usr/sbin/visudo
+# Ajouter :
+administrateur ALL=(ALL) NOPASSWD: /usr/bin/gdb
+```
+
+### 7 — Créer le flag
+```bash
+echo "{VOTRE_FLAG}" > /root/flag.txt
+chmod 600 /root/flag.txt
+chown root:root /root/flag.txt
+```
+
 ## Outils nécessaires pour résoudre
 
 - `strings` - analyse statique basique
